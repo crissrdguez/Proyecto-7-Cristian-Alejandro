@@ -1,0 +1,165 @@
+
+include "emu8086.inc"
+
+data segment
+
+mensaje dw "Hola mundo","$"
+clave db ?
+x db ?
+y db ?
+opcion db ?
+
+data ends
+
+stack segment
+
+db 64 dup(?)
+
+stack ends
+
+code segment
+
+start proc far
+
+assume ds:data, cs:code, ss:stack
+
+push ds
+mov ax, 0
+push ax
+
+mov ax, data
+mov ds, ax
+mov es, ax
+
+add x, 2
+add y, 2
+gotoxy x, y
+call pthis
+db "Introduzca una clave publica:", 0
+inc y
+gotoxy x, y
+call scan_num
+mov clave, cl
+mov cx, 0
+add y, 2
+gotoxy x, y
+call pthis
+db "Introduzca una clave privada:", 0
+inc y
+gotoxy x, y
+call scan_num
+mov clave, cl
+mov cx, 0
+
+menu1:
+call clear_screen
+mov x, 2
+mov y, 2
+gotoxy x, y
+call pthis
+db "Introduzca el numero 1 para cifrar el mensaje "Hola  Mundo".", 0
+inc y
+gotoxy x, y
+call scan_num
+cmp cl, 1
+je caso1
+jne error
+
+menu2:
+call clear_screen
+mov x, 2
+mov y, 2
+gotoxy x, y
+call pthis
+db "Introduzca el numero 1 para descifrar el mensaje.", 0
+inc y
+gotoxy x, y
+call scan_num
+cmp cl, 1
+je caso2
+jne error
+
+error:
+jmp salir
+
+caso1:
+add y, 2
+gotoxy x, y
+mov cx, 0
+mov si, mensaje
+cifrar
+call pthis
+db "El mensaje ha sido cifrado:", 0
+add x, 30
+gotoxy x, y
+mov ax, si
+call print_num_uns
+jmp menu2
+
+caso2:
+add y, 2
+gotoxy x, y
+mov cx, 0
+mov si, mensaje
+call pthis
+db "El mensaje ha sido descifrado, "Hola Mundo".", 0
+descifrar
+add y, 6
+gotoxy x, y
+salir:
+call pthis
+db "Gracias por todo, presione ENTER", 0
+call scan_num
+
+ret
+
+start endp
+
+code ends
+
+cifrar macro
+
+mov cl, [clave]
+xor ch, ch
+
+salto:
+lodsb
+cmp al, 0
+je cifrar_fin
+
+add al, cl
+stosb
+jmp salto
+
+cifrar_fin:
+
+cifrar endm
+
+descifrar macro
+
+mov cl, [clave]
+xor ch, ch
+
+saltod:
+lodsb
+cmp al, 0
+je descifrar_fin
+
+sub al, cl
+stosb
+jmp saltod
+
+descifrar_fin:
+
+descifrar endm
+
+define_clear_screen
+define_pthis
+define_scan_num
+define_print_num_uns
+
+end start
+
+
+
+; [SOURCE]: C:\emu8086\MySource\ejemplo.asm

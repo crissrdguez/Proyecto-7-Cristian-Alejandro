@@ -1,0 +1,57 @@
+< THE SYMBOL TABLE >  ejemplo.exe_  --  emu8086 assembler version: 4.08 
+===================================================================================================
+Name                     	Offset    	Size      	Type      	Segment   
+===================================================================================================
+DATA                     	00000     	-5        	SEGMENT   	(ITSELF)  
+MENSAJE                  	00000     	2         	VAR       	data      
+CLAVE                    	0000C     	1         	VAR       	data      
+X                        	0000D     	1         	VAR       	data      
+Y                        	0000E     	1         	VAR       	data      
+OPCION                   	0000F     	1         	VAR       	data      
+STACK                    	00001     	-5        	SEGMENT   	(ITSELF)  
+CODE                     	00005     	-5        	SEGMENT   	(ITSELF)  
+START                    	00000     	-1        	FAR       	code      
+MENU1                    	000C9     	-1        	LABEL     	code      
+MENU2                    	0014C     	-1        	LABEL     	code      
+ERROR                    	001C4     	-1        	LABEL     	code      
+CASO1                    	001C7     	-1        	LABEL     	code      
+SALTO                    	001ED     	-1        	LABEL     	code      
+CIFRAR_FIN               	001F7     	-1        	LABEL     	code      
+CASO2                    	00237     	-1        	LABEL     	code      
+SALTOD                   	0028D     	-1        	LABEL     	code      
+DESCIFRAR_FIN            	00297     	-1        	LABEL     	code      
+SALIR                    	002B0     	-1        	LABEL     	code      
+CLEAR_SCREEN             	002DA     	-1        	NEAR      	          
+SKIP_PROC_CLEAR_SCREEN_LOC1TMP	0030C     	-1        	LABEL     	          
+PTHIS                    	0030E     	-1        	NEAR      	          
+NEXT_CHAR_LOC2TMP        	00315     	-1        	LABEL     	          
+PRINTED_LOC2TMP          	00323     	-1        	LABEL     	          
+TEMP1_LOC2TMP            	0032B     	2         	VAR       	          
+SKIP_PROC_PTHIS_LOC2TMP  	0032D     	-1        	LABEL     	          
+SCAN_NUM                 	00330     	-1        	NEAR      	          
+NEXT_DIGIT_LOC3TMP       	0033C     	-1        	LABEL     	          
+NOT_CR_LOC6TMP           	0034F     	-1        	LABEL     	          
+BACKSPACE_CHECKED_LOC4TMP	00371     	-1        	LABEL     	          
+OK_AE_0_LOC6TMP          	00377     	-1        	LABEL     	          
+REMOVE_NOT_DIGIT_LOC6TMP 	0037B     	-1        	LABEL     	          
+OK_DIGIT_LOC6TMP         	00395     	-1        	LABEL     	          
+SET_MINUS_LOC3TMP        	003B1     	-1        	LABEL     	          
+TOO_BIG2_LOC4TMP         	003B9     	-1        	LABEL     	          
+TOO_BIG_LOC4TMP          	003BE     	-1        	LABEL     	          
+STOP_INPUT_LOC5TMP       	003E2     	-1        	LABEL     	          
+NOT_MINUS_LOC5TMP        	003EC     	-1        	LABEL     	          
+MAKE_MINUS_LOC3TMP       	003F0     	1         	VAR       	          
+TEN_LOC3TMP              	003F1     	2         	VAR       	          
+SKIP_PROC_SCAN_NUM_LOC5TMP	003F3     	-1        	LABEL     	          
+PRINT_NUM_UNS            	003F5     	-1        	NEAR      	          
+BEGIN_PRINT_LOC7TMP      	00404     	-1        	LABEL     	          
+CALC_LOC7TMP             	00412     	-1        	LABEL     	          
+SKIP_LOC7TMP             	00426     	-1        	LABEL     	          
+PRINT_ZERO_LOC7TMP       	00436     	-1        	LABEL     	          
+END_PRINT_LOC7TMP        	0043E     	-1        	LABEL     	          
+TEN_LOC7TMP              	00443     	2         	VAR       	          
+SKIP_PROC_PRINT_NUM_UNS_LOC8TMP	00445     	-1        	LABEL     	          
+===================================================================================================
+[ 12/07/23  --  01:25:30 ] 
+< END >
+ 
